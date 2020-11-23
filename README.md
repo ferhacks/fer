@@ -46,8 +46,7 @@ Clone this project
 Install the dependencies:
 
 ```bash
-> npm install 
-> npm install gify-cli -g
+> npm install gify-cli -g && npm i && npm i google-translate-open-api
 ```
 
 ### Usage
