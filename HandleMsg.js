@@ -1071,8 +1071,8 @@ module.exports = HandleMsg = async (aruga, message) => {
     		console.log(`stdout: ${stdout}`);
 		});
 	});
-      Break
-}
+       }
+    Break
         case 'leaveall': //mengeluarkan bot dari semua group serta menghapus chatnya
             if (!isOwnerBot) return aruga.reply(from, 'Perintah ini hanya untuk Owner bot', id)
             const allChatz = await aruga.getAllChatIds()
