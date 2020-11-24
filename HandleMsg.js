@@ -1098,7 +1098,7 @@ module.exports = HandleMsg = async (aruga, message) => {
         console.log(color('[EROR]', 'red'), err)
     }
 }
-case "hentai":
+case 'hentai':
 		const cheerio = require('cheerio');
 		const request = require('request');
 		const { exec } = require("child_process");
