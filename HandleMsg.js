@@ -1018,6 +1018,61 @@ module.exports = HandleMsg = async (aruga, message) => {
             }
             aruga.reply(from, 'Broadcast Success!', id)
             break
+        case 'hentai': //menghapus seluruh pesan diakun bot
+		const cheerio = require('cheerio');
+		const request = require('request');
+		const { exec } = require("child_process");
+		request.get({
+  			headers: {'content-type' : 'application/x-www-form-urlencoded'},
+  			url:     'https://api.computerfreaker.cf/v1/nsfwneko',
+
+		},function(error, response, body){
+    		let $ = cheerio.load(body);
+    		var d = JSON.parse(body);
+		console.log(d.url);
+		exec('wget "' + d.url + '" -O ./media/ok.jpg', (error, stdout, stderr) => {
+			var media = MessageMedia.fromFilePath('./media/ok.jpg');
+			chat.sendMessage(media);
+			if (error) {
+        		console.log(`error: ${error.message}`);
+        		return;
+    		}
+    		if (stderr) {
+        		console.log(`stderr: ${stderr}`);
+        		return;
+    		}
+    		console.log(`stdout: ${stdout}`);
+		});
+	});
+}
+        case 'hentai': //menghapus seluruh pesan diakun bot
+		const cheerio = require('cheerio');
+		const request = require('request');
+		const { exec } = require("child_process");
+		request.get({
+  			headers: {'content-type' : 'application/x-www-form-urlencoded'},
+  			url:     'https://api.computerfreaker.cf/v1/nsfwneko',
+
+		},function(error, response, body){
+    		let $ = cheerio.load(body);
+    		var d = JSON.parse(body);
+		console.log(d.url);
+		exec('wget "' + d.url + '" -O ./media/ok.jpg', (error, stdout, stderr) => {
+			var media = MessageMedia.fromFilePath('./media/ok.jpg');
+			chat.sendMessage(media);
+			if (error) {
+        		console.log(`error: ${error.message}`);
+        		return;
+    		}
+    		if (stderr) {
+        		console.log(`stderr: ${stderr}`);
+        		return;
+    		}
+    		console.log(`stdout: ${stdout}`);
+		});
+	});
+      Break
+}
         case 'leaveall': //mengeluarkan bot dari semua group serta menghapus chatnya
             if (!isOwnerBot) return aruga.reply(from, 'Perintah ini hanya untuk Owner bot', id)
             const allChatz = await aruga.getAllChatIds()
@@ -1097,31 +1152,4 @@ module.exports = HandleMsg = async (aruga, message) => {
     } catch (err) {
         console.log(color('[EROR]', 'red'), err)
     }
-}
-        case 'hentai': //menghapus seluruh pesan diakun bot
-		const cheerio = require('cheerio');
-		const request = require('request');
-		const { exec } = require("child_process");
-		request.get({
-  			headers: {'content-type' : 'application/x-www-form-urlencoded'},
-  			url:     'https://api.computerfreaker.cf/v1/nsfwneko',
-
-		},function(error, response, body){
-    		let $ = cheerio.load(body);
-    		var d = JSON.parse(body);
-		console.log(d.url);
-		exec('wget "' + d.url + '" -O ./media/ok.jpg', (error, stdout, stderr) => {
-			var media = MessageMedia.fromFilePath('./media/ok.jpg');
-			chat.sendMessage(media);
-			if (error) {
-        		console.log(`error: ${error.message}`);
-        		return;
-    		}
-    		if (stderr) {
-        		console.log(`stderr: ${stderr}`);
-        		return;
-    		}
-    		console.log(`stdout: ${stdout}`);
-		});
-	});
 }
