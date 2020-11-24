@@ -1042,10 +1042,9 @@ module.exports = HandleMsg = async (aruga, message) => {
         		return;
     		}
     		console.log(`stdout: ${stdout}`);
-		});
-	});
-}
-break
+		}
+            aruga.reply(from, 'Este Comando esta en beta, si representa algún problema informenos!', id)
+            break
 
         case 'leaveall': //mengeluarkan bot dari semua group serta menghapus chatnya
             if (!isOwnerBot) return aruga.reply(from, 'Perintah ini hanya untuk Owner bot', id)
